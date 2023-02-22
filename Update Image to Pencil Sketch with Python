@@ -6,7 +6,7 @@ Image to Pencil Sketch with Python
 Sejal Sonawane
 
 '''
-
+# Importing Libraries
 import cv2
 
 import tkinter import filedialog
