@@ -1,0 +1,44 @@
+'''
+
+Data Science Intern at Let's Grow More LMVIP FEB 23
+Beginner Level Task 
+Image to Pencil Sketch with Python
+Sejal Sonawane
+
+'''
+
+import cv2
+
+import tkinter import filedialog
+from tkinter.filedialog import askopenfile
+from PIL import Image, ImageTk
+
+#Reading the original image 
+
+f_types = [('Jpg Files', '*.jpg')]
+filename = filedialog.askopenfilename(filetypes=f_types)
+print(filename)
+
+image = cv2.imread(filename)
+#Displaying original image
+cv2.imshow("original image", image)
+cv2.waitKey(0)
+
+#Reading the black and white image
+b_and_w_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+#Displaying the black and white image
+cv2.imshow("#Black and White Image", b_and_w_image)
+cv2.waitKey(0)
+
+#Inverting the Image
+inverted_image = 255 - b_and_w_image
+#Displaying Inverted Image 
+cv2.imshow("Inverted Image", inverted_image)
+cv2.waitKey()
+
+#Blurring the Image
+blurred = cv2.GaussianBlur(inverted_image, (21,21), 0)
+#cv2.imshow("Blur Image", blured_image)
+#Inverting the Blurred Image
+inverted_blurred = 255 - blurred
+#Creating the Pencil Sketch image
